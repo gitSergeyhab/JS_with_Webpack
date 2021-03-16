@@ -3,7 +3,7 @@ const HTMLlPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    entry: ['./src/index.js'],
+    entry: ['@babel/polyfill', './src/index.js'],
     output: {
         path: __dirname + '/dist',
         filename: 'bundle.js'
@@ -19,5 +19,19 @@ module.exports = {
     ],
     resolve: {
         extensions: ['.js']
-    }
+    },
+    module: {
+        rules: [
+          {
+            test: /\.m?js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader",
+              options: {
+                presets: ['@babel/preset-env']
+              }
+            }
+          }
+        ]
+      }
 }
