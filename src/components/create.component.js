@@ -26,11 +26,9 @@ function submitHandler(evt) {
             type: this.$el.type.value,
             ...this.form.value()
         }
+        this.form.clearForm();
         console.log(formData)
-    } else {
-        console.warn('forms are not valid!')
     }
-
 }
 
 export {CreateCompomemt};
