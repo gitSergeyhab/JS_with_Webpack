@@ -11,7 +11,7 @@ const create = new CreateCompomemt('create');
 const loader = new LoaderComponent('loader');
 
 const posts = new PostsCompomemt('posts', loader);
-const favorite = new FavoriteCompomemt('favorite');
+const favorite = new FavoriteCompomemt('favorite', loader);
 
 
 // console.log(nav)
