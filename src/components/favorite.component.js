@@ -16,7 +16,7 @@ class FavoriteCompomemt extends Component {
     onShow() {
         const favidNames = localStorage.getItem('favidNames');
         const favorPosts = JSON.parse(favidNames); 
-        if (favorPosts.length) {
+        if (favorPosts && favorPosts.length) {
             const favoriteHtml = favorPosts.map(fav => renderFav(fav));
             this.$el.innerHTML = favoriteHtml.join('');
         } else {
