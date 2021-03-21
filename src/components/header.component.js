@@ -19,6 +19,4 @@ function hideHeader() {
     this.hide();
 }
 
-
-
 export {HeaderComponent}

@@ -3,8 +3,6 @@ import {apiService} from '../services/api.service';
 import {TransformService} from '../services/transform.service';
 import {renderPost} from '../templates/render.post';
 
-
-
 class FavoriteCompomemt extends Component {
     constructor(id, loader) {
         super(id);
@@ -23,11 +21,9 @@ class FavoriteCompomemt extends Component {
             this.$el.innerHTML = favoriteHtml.join('');
         } else {
             this.$el.innerHTML = `
-            <p class="center">Нет избанных</p>
+            <p class="center">Нет избранных</p>
             `
         }
-        // console.log(favId);
-
     }
 }
 
@@ -51,15 +47,8 @@ async function favBtnHandler(evt) {
     const posts = TransformService.fbObjToArray(data);
     const post = posts.filter(p => p.id == id);
     const postsHtml = post.map(p => renderPost(p));
-    // console.log(postsHtml[0])
     this.$el.innerHTML = postsHtml[0];
     this.loader.hide();
-    
-
-    if (id) {
-        console.log(id)
-    }
 }
-
 
 export {FavoriteCompomemt};

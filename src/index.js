@@ -13,10 +13,6 @@ const loader = new LoaderComponent('loader');
 const posts = new PostsCompomemt('posts', loader);
 const favorite = new FavoriteCompomemt('favorite', loader);
 
-
-// console.log(nav)
-
-
 nav.regiserTabs([
     {name: 'posts', component: posts},
     {name: 'create', component: create},

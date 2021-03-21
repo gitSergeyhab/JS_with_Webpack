@@ -51,7 +51,6 @@ class Form {
 }
 
 function setError(cont) {
-
     const errorMessage = '<p class="validation-error">Некоректное значение!</p>';
     cont.classList.add('invalid');
     cont.insertAdjacentHTML('afterend', errorMessage);

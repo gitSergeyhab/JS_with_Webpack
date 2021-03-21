@@ -3,7 +3,6 @@ import {apiService} from '../services/api.service';
 import {TransformService} from '../services/transform.service';
 import {renderPost} from '../templates/render.post';
 
-
 class PostsCompomemt extends Component {
     constructor(id, loader) {
         super(id);
@@ -19,12 +18,10 @@ class PostsCompomemt extends Component {
         const data = await apiService.fetchPosts();
         const posts = TransformService.fbObjToArray(data);
         const postsHtml = posts.map(p => renderPost(p, true));
-        
         this.$el.innerHTML = postsHtml.join('');
         this.loader.hide();
     }
 }
-
 
 function buttonHandler(evt) {
     const btn = evt.target;
@@ -32,7 +29,6 @@ function buttonHandler(evt) {
     let favidNames = [];
     if(btn.dataset.post_id) {
         const postId = btn.dataset.post_id;
-        console.log(postId)
         if(localStorage.getItem('favId')) {
             favId = JSON.parse(localStorage.getItem('favId'));
             favidNames = JSON.parse(localStorage.getItem('favidNames'));
@@ -53,7 +49,6 @@ function buttonHandler(evt) {
             }
         localStorage.setItem('favId', JSON.stringify(favId));
         localStorage.setItem('favidNames', JSON.stringify(favidNames));
-        console.log(localStorage.getItem('favId'));
     }
 }
 
